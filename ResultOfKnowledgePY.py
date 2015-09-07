@@ -19,6 +19,11 @@ sumEntry = 0
 for i in range(1,4):
             sumEntry += mark[i]
 generalSum = sumExpert + sumAdvanced + sumBasic + sumEntry 
+def showResult():
+    print("Високий рівень {}%" .format(rExpert))
+    print("Достатній рівень {}%" .format(rAdvanced))
+    print("Середній рівень {}%" .format(rBasic))
+    print("Низький рівень {}%" .format(rEntry))
 if generalSum != 0:
    rExpert=sumExpert*RATE/generalSum
    rAdvanced=sumAdvanced*RATE/generalSum
@@ -26,19 +31,13 @@ if generalSum != 0:
    rEntry=sumEntry*RATE/generalSum
    sumaRate=rExpert+rAdvanced+rBasic+rEntry
    if sumaRate == RATE:
-       print("Високий рівень {}%" .format(rExpert))
-       print("Достатній рівень {}%" .format(rAdvanced))
-       print("Середній рівень {}%" .format(rBasic))
-       print("Низький рівень {}%" .format(rEntry))
-       print("Готово")
+      print showResult()
+      print("Готово")
    else:
-           print("не 100%")
-           rDifference=RATE-sumaRate
-           rAdvanced+=rDifference
-           print("Високий рівень {}%" .format(rExpert))
-           print("Достатній рівень {}%" .format(rAdvanced))
-           print("Середній рівень {}%" .format(rBasic))
-           print("Низький рівень {}%" .format(rEntry))
-           print("Різниця: {} % додана до достатнього рівня" .format(rDifference))
+        print("не 100%")
+        rDifference=RATE-sumaRate
+        rAdvanced+=rDifference
+        print showResult()
+        print("Різниця: {} % додана до достатнього рівня" .format(rDifference))
 else:
     print("На нуль ділити не можна!") 
